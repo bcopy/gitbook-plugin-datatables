@@ -1,0 +1,44 @@
+{
+  "name": "gitbook-plugin-datatables",
+  "version": "0.1.0",
+  "description": "A plugin to integrate support for DataTables.net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcopy/gitbook-plugin-datatables.git"
+  },
+  "author": "Brice Copy",
+  "license": "MIT",
+  "homepage": "https://github.com/bcopy/gitbook-plugin-datatables#readme",
+  "main": "index.js",
+  "engines": {
+    "gitbook": "*"
+  },
+  "scripts": {
+    "test": "nyc --reporter=lcov mocha --timeout 200000",
+    "coverage": "cat ./coverage/lcov.info | coveralls"
+  }
+  "dependencies": {
+    "cheerio": "*",
+    "datatables.net" : "*"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.1",
+    "honkit-tester": "^1.9.6",
+    "mocha": "^9.2.1",
+    "nyc": "^15.1.0",
+  },
+  "mocha": {
+    "recursive": true,
+    "extension": ["js"]
+  },
+  "gitbook": {
+    "properties": {
+      "force": {
+        "type": "boolean",
+        "required": false,
+        "title": "Force all generated tables to support datatables"
+      }
+    }
+  }
+
+}
