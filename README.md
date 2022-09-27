@@ -41,6 +41,7 @@ With regards to support for dynamic data source, note that the plugin can only i
 * Finally you can run the book in preview mode
   * ```npm run serve```
 
+Alternatively, you can install NodeJS locally.
 
 ### Gitflow support in Gradle
 
@@ -66,5 +67,3 @@ With regards to support for dynamic data source, note that the plugin can only i
 
 Please refer to https://github.com/hyasinfosec/gitflow-gradle-plugin
 
-
-Alternatively, you can install NodeJS locally.
