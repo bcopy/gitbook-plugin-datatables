@@ -44,6 +44,12 @@ With regards to support for dynamic data source, note that the plugin can only i
 
 ### Gitflow support in Gradle
 
+* Init gitflow
+
+```
+./gradlew initGitflow
+```
+
 * Develop a new feature with
 
 ```
