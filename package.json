@@ -16,20 +16,22 @@
   "scripts": {
     "test": "nyc --reporter=lcov mocha --timeout 200000",
     "coverage": "cat ./coverage/lcov.info | coveralls"
-  }
+  },
   "dependencies": {
     "cheerio": "*",
-    "datatables.net" : "*"
+    "datatables.net": "*"
   },
   "devDependencies": {
     "coveralls": "^3.1.1",
     "honkit-tester": "^1.9.6",
     "mocha": "^9.2.1",
-    "nyc": "^15.1.0",
+    "nyc": "^15.1.0"
   },
   "mocha": {
     "recursive": true,
-    "extension": ["js"]
+    "extension": [
+      "js"
+    ]
   },
   "gitbook": {
     "properties": {
@@ -40,5 +42,4 @@
       }
     }
   }
-
 }
