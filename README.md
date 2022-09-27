@@ -42,4 +42,23 @@ With regards to support for dynamic data source, note that the plugin can only i
   * ```npm run serve```
 
 
+### Gitflow support in Gradle
+
+* Develop a new feature with
+
+```
+./gradlew featureStart
+./gradlew featureFinish
+````
+
+* Issue a new release with
+
+```
+./gradlew releaseStart
+./gradlew releaseFinish
+````
+
+Please refer to https://github.com/hyasinfosec/gitflow-gradle-plugin
+
+
 Alternatively, you can install NodeJS locally.
