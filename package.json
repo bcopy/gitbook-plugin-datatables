@@ -13,9 +13,21 @@
   "engines": {
     "gitbook": "*"
   },
+  "gitbook": {
+    "properties": {
+      "force": {
+        "type": "boolean",
+        "required": false,
+        "title": "Force all generated tables to support datatables"
+      }
+    }
+  },
   "scripts": {
+    "build" : "npm run copy && npm pack",
+    "copy" : "copyfiles -uEf ./node_modules/datatables.net/js/jquery.dataTables.min.js ./assets/js && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets/js",
     "test": "nyc --reporter=lcov mocha --timeout 200000",
-    "coverage": "cat ./coverage/lcov.info | coveralls"
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "clean" : "rm -rf ./assets/js/*"
   },
   "dependencies": {
     "cheerio": "*",
@@ -25,21 +37,13 @@
     "coveralls": "^3.1.1",
     "honkit-tester": "^1.9.6",
     "mocha": "^9.2.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "copyfiles": "^2.4.1"
   },
   "mocha": {
     "recursive": true,
     "extension": [
       "js"
     ]
-  },
-  "gitbook": {
-    "properties": {
-      "force": {
-        "type": "boolean",
-        "required": false,
-        "title": "Force all generated tables to support datatables"
-      }
-    }
   }
 }

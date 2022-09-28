@@ -109,3 +109,5 @@ dist
 /build/
 /public/
 *.code-workspace
+/assets/js/
+*.tgz

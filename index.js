@@ -2,6 +2,10 @@ const cheerio = require('cheerio');
 const crypto = require('crypto');
 
 module.exports = {
+    website:{
+      assets: './assets',
+      js: [ 'js/jquery.min.js','js/jquery.dataTables.min.js']
+    },
     hooks: {
       init: async function () {
         console.warn("Starting Datatables plugin...");
