@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build" : "npm run copy && npm pack",
-    "copy" : "copyfiles -uEf ./node_modules/datatables.net/js/jquery.dataTables.min.js ./assets/js && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets/js",
+    "copy" : "copyfiles -uEf ./node_modules/datatables.net/js/jquery.dataTables.min.js ./assets && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets",
     "test": "nyc --reporter=lcov mocha --timeout 200000",
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "clean" : "rm -rf ./assets/js/*"

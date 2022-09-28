@@ -2,9 +2,9 @@ const cheerio = require('cheerio');
 const crypto = require('crypto');
 
 module.exports = {
-    website:{
+    book:{
       assets: './assets',
-      js: [ 'js/jquery.min.js','js/jquery.dataTables.min.js']
+      js: [ 'jquery.min.js','jquery.dataTables.min.js']
     },
     hooks: {
       init: async function () {
