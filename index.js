@@ -4,7 +4,7 @@ const crypto = require('crypto');
 module.exports = {
     book:{
       assets: './assets',
-      js: [ 'jquery.min.js','jquery.dataTables.min.js']
+      js: [ 'js/jquery.min.js','js/jquery.dataTables.min.js']
     },
     hooks: {
       init: async function () {
