@@ -10,7 +10,6 @@ describe('datatables', function() {
             .withLocalPlugin(path.join(__dirname, '..'))
             .create()
             .then(function(result) {
-                console.warn('\n\n'+result.get('index.html').content+'\n\n')
                 assert(result.get('index.html').content.includes('data-dt-process="true"'));
             });
     });
