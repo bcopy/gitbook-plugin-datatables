@@ -9,7 +9,7 @@ module.exports = {
     },
     hooks: {
       init: async function () {
-        console.warn("Starting Datatables plugin...");
+        
       },
       "page": function(page) {
         // Inspect page contents and initialize all tables that carry the datatables class
@@ -21,7 +21,6 @@ module.exports = {
           console.debug("Processing table "+index);
           if (  $(this).attr('id') === undefined ){
             $(this).attr('id',`datatable-${crypto.randomBytes(16).toString('base64').substring(0, 16)}`);
-            console.warn("Set table "+index+" id to "+$(this).attr('id'));
           }
           $(this).attr("data-dt-process", "true");
         });
