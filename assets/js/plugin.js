@@ -10,7 +10,7 @@ require(["gitbook", "jQuery"], function(gitbook, $, dt) {
     // ... emitted whenever a file.md changes
     gitbook.events.bind("page.change", function(e) {
             $('table[data-dt-process="true"]').each(function(){
-                new DataTable(this,{});
+                new DataTable(this,{select:true, dom: 'Plfrtip'});
             });
 
         
