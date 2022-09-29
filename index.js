@@ -4,7 +4,8 @@ const crypto = require('crypto');
 module.exports = {
     book:{
       assets: './assets',
-      js: [ 'js/jquery.min.js','js/jquery.dataTables.min.js','js/plugin.js']
+      js: [ 'js/jquery.min.js','js/jquery.dataTables.min.js', 'js/dataTables.dataTables.min.js','js/plugin.js'],
+      css: [ 'css/jquery.dataTables.min.css']
     },
     hooks: {
       init: async function () {
@@ -27,27 +28,6 @@ module.exports = {
 
         page.content = $.html();
 
-        // Wrap all datatables in constructor calls in a script at the bottom of the page
-        // if(tableIds.length > 0){
-        //   page.content += '\n\n<script type="text/javascript">\n';
-        //   tableIds.forEach(function(value){
-        //     console.warn("constructor for "+value);
-        //     page.content += "new DataTable('#"+value+"',{});\n";
-        //   });
-        //   page.content += '</script>\n\n';
-        // }
-        
-
-        // if(tableIds.length > 0){
-        //   page.content += '\n\n<script type="text/javascript">\nvar $  = require( \'jquery\' );\n$(document).ready( function () {\n';
-        //   tableIds.forEach(function(value){
-        //     console.warn("constructor for "+value);
-        //     page.content += "  $('#"+value+"').DataTable();\n";
-        //   });
-        //   page.content += '} );\n</script>\n\n';
-        // }
-
-        // console.warn("new content : "+page.content);
         return page;
       },
     }

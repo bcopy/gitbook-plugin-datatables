@@ -110,4 +110,6 @@ dist
 /public/
 *.code-workspace
 /assets/js/jquery.*
+/assets/js/dataTables.*
+/assets/css/jquery.*
 *.tgz
