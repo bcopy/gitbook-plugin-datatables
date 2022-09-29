@@ -18,13 +18,11 @@ module.exports = {
         
         // Iterate around all the tables marked as datatables and collect their element id
         $('table[class=datatable]').each(function( index ) {
-          console.debug("Processing table "+index);
           if (  $(this).attr('id') === undefined ){
             $(this).attr('id',`datatable-${crypto.randomBytes(16).toString('base64').substring(0, 16)}`);
           }
           $(this).attr("data-dt-process", "true");
         });
-
         page.content = $.html();
 
         return page;
