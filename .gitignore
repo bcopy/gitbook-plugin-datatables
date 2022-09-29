@@ -109,5 +109,5 @@ dist
 /build/
 /public/
 *.code-workspace
-/assets/*
+/assets/js/jquery.*
 *.tgz
