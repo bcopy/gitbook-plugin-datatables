@@ -20,6 +20,35 @@ With regards to support for dynamic data source, note that the plugin can only i
 }
 ```
 
+## DataTables Configuration
+
+In order to configure your datatables, you can use [inline HTML 5 data attributes](https://datatables.net/manual/options#HTML-5-data-attributes) for simple cases, or provide a javascript module exposing the configuration associating a CSS selector with the configuration you wish to see applied.
+For it to work, your module must export an object constant ```DATATABLES_CONFIG```, as in the example below.
+
+For instance, to configure an HTML table bearing the ID "accounting", you could use :
+
+```javascript
+module.exports = Object.freeze({
+   DATATABLES_CONFIG : {
+    "#accounting" : {
+        ajax: '/data/objects.txt',
+        columns: [
+            { data: 'name' },
+            { data: 'position' },
+            { data: 'office' },
+            { data: 'extn' },
+            { data: 'start_date' },
+            { data: 'salary' }
+        ],
+        order: [[2, 'asc']],
+        rowGroup: {
+            dataSrc: 'office'
+        }
+    }
+   }
+});
+```
+
 ## Features
 
 * Please refer to [https://datatables.net/](https://datatables.net/) for its full and exhaustive list of features.

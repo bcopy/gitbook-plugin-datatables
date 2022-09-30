@@ -19,6 +19,11 @@
         "type": "boolean",
         "required": false,
         "title": "Force all generated tables to support datatables"
+      },
+      "configLocation": {
+        "type": "string",
+        "required": false,
+        "title": "Location of a js module exposing DATATABLES_CONFIG"
       }
     }
   },
