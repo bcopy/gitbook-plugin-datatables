@@ -4,20 +4,25 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     var defaultDatatablesConfig = {}
 
     gitbook.events.bind('start', function(e, bookPluginConfig) {
-        // simply retain in parent scope (for subsequent use)
         config = bookPluginConfig['datatables'];
 
-        if (config.defaultConfig) {
-            defaultDatatablesConfig = config.defaultConfig;
+        if (config["default-config"]) {
+            defaultDatatablesConfig = eval(config["default-config"]);
         }
 
-        // If configured, keep the datatablesConfig available
-        if (config.configLocation) {
-            // require the module and keep a copy of the map
-            datatablesConfig = require(config.configLocation).DATATABLES_CONFIG;
+        // If configured and valid JSON, initialize the datatablesConfig
+        if (config["config-url"]) {
+            $.ajax({ url: config["config-url"]
+                   , contentType: 'application/json; charset=UTF-8'
+                   , async: false
+                   , success: function( data ){
+                        datatablesConfig = eval(data);
+                    }
+                    , error: function(errorData){
+                        console.log("Datatables Config ajax call failed - invalid JSON or mime type ?", errorData);
+                    }
+                }); 
         }
-
-        console.debug('start event ... config: ', config);
       });
     
     // listen for gitbook "page.change" events
@@ -30,16 +35,14 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
                 var tableElement = $(this);
                 
                 // Try and match this to any of the CSS selectors in the datables config map
-                $.each(datatablesConfig,function(index, selector){
+                $.each(datatablesConfig,function(selector){
                     if(tableElement.is(selector)){
-                        $.extend(dtConfig, datatablesConfig[selector])
+                        $.extend(dtConfig, datatablesConfig[selector]);
                     }
                 });
 
                 // Construct the datatable and apply the custom configuration if any
                 new DataTable(this,dtConfig);
             });
-
-        
     });
 });

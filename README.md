@@ -12,41 +12,44 @@ With regards to support for dynamic data source, note that the plugin can only i
  npm install bcopy/gitbook-plugin-datatables
  ```
 
-* Add the plugin to your `book.json` :
+* Add the plugin to your `book.json`, for example :
 
 ```json
 {
-  "plugins": ["datatables"]
+  "plugins": ["datatables"],
+  (...)
+  "pluginsConfig":{
+    "datatables":{
+            "config-url" : "/data/dtconfig.json",
+            "default-config": {"pageLength": 50 }
+    }
+  }
 }
 ```
 
 ## DataTables Configuration
 
-In order to configure your datatables, you can use [inline HTML 5 data attributes](https://datatables.net/manual/options#HTML-5-data-attributes) for simple cases, or provide a javascript module exposing the configuration associating a CSS selector with the configuration you wish to see applied.
-For it to work, your module must export an object constant ```DATATABLES_CONFIG```, as in the example below.
+In order to configure your datatables, you can use [inline HTML 5 data attributes](https://datatables.net/manual/options#HTML-5-data-attributes) for simple cases, or provide a JSON object associating a CSS selector with the datatable configuration you wish to see applied to matching DOM elements.
+For it to work, your JSON file must be valid, as in the example below.
 
 For instance, to configure an HTML table bearing the ID "accounting", you could use :
 
-```javascript
-module.exports = Object.freeze({
-   DATATABLES_CONFIG : {
-    "#accounting" : {
-        ajax: '/data/objects.txt',
-        columns: [
-            { data: 'name' },
-            { data: 'position' },
-            { data: 'office' },
-            { data: 'extn' },
-            { data: 'start_date' },
-            { data: 'salary' }
-        ],
-        order: [[2, 'asc']],
-        rowGroup: {
-            dataSrc: 'office'
-        }
-    }
+```json
+{
+   "#accounting":{
+      "ajax":"/data/objects.txt",
+      "columns":[
+         { "data":"name" },
+         { "data":"position" },
+         { "data":"office" },
+         { "data":"extn" },
+         { "data":"start_date" },
+         { "data":"salary" }
+      ],
+      "order":[ [ 2, "asc" ] ],
+      "rowGroup":{ "dataSrc":"office" }
    }
-});
+}
 ```
 
 ## Features

@@ -18,12 +18,18 @@
       "force": {
         "type": "boolean",
         "required": false,
-        "title": "Force all generated tables to support datatables"
+        "title": "Force all generated tables to support datatables (if set to true, all HTML and markdown tables will become datatables)",
+        "value": false
       },
-      "configLocation": {
+      "config-url": {
         "type": "string",
         "required": false,
-        "title": "Location of a js module exposing DATATABLES_CONFIG"
+        "title": "URL of a valid json file containing datatables configurations"
+      },
+      "default-config": {
+        "type": "object",
+        "required": false,
+        "title": "Default datatables configuration to apply to all datatables"
       }
     }
   },
