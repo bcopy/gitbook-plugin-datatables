@@ -1,0 +1,9 @@
+node_modules
+.gradle
+build
+gradle*
+node
+test/
+*.gradle
+*.tgz
+setup-path.sh

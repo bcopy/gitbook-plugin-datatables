@@ -1,5 +1,6 @@
 plugins {
     id 'org.siouan.frontend-jdk11'
+    id 'com.hyas.gitflow' version '1.0.2'
 }
 
 frontend {
