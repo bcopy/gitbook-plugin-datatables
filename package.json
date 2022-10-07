@@ -67,5 +67,8 @@
     "extension": [
       "js"
     ]
-  }
+  },
+  "files":[
+    "assets"
+  ]
 }
