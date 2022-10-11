@@ -34,7 +34,7 @@
     }
   },
   "scripts": {
-    "install": "npm run prepare && npm pack",
+    "build": "npm run prepare && npm pack",
     "prepare": "copyfiles -uEf ./node_modules/datatables.net*/js/*.min.js ./assets/js && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets/js && copyfiles -uEf node_modules/datatables.net*/css/*.min.css ./assets/css",
     "test": "nyc --reporter=lcov mocha --timeout 200000",
     "coverage": "cat ./coverage/lcov.info | coveralls",
@@ -53,14 +53,14 @@
     "datatables.net-searchbuilder-dt": "^1.3.4",
     "datatables.net-searchpanes-dt": "^2.0.2",
     "datatables.net-select-dt": "^1.4.0",
-    "yargs": "^17.5.1",
-    "copyfiles": "^2.4.1"
+    "yargs": "^17.5.1"
   },
   "devDependencies": {
     "coveralls": "^3.1.1",
     "honkit-tester": "^1.9.6",
     "mocha": "^9.2.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "copyfiles": "^2.4.1"
   },
   "mocha": {
     "recursive": true,
