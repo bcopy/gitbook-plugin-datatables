@@ -109,7 +109,4 @@ dist
 /build/
 /public/
 *.code-workspace
-/assets/js/jquery.*
-/assets/js/*dataTables.*
-/assets/css/*dataTables*
 *.tgz
