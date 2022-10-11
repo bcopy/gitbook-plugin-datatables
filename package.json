@@ -34,6 +34,7 @@
     }
   },
   "scripts": {
+    "install": "npm run prepare && npm pack",
     "build": "npm run prepare && npm pack",
     "prepare": "copyfiles -uEf ./node_modules/datatables.net*/js/*.min.js ./assets/js && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets/js && copyfiles -uEf node_modules/datatables.net*/css/*.min.css ./assets/css",
     "test": "nyc --reporter=lcov mocha --timeout 200000",
