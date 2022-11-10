@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-datatables",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A plugin to integrate support for DataTables.net",
   "repository": {
     "type": "git",
@@ -13,19 +13,54 @@
   "engines": {
     "gitbook": "*"
   },
+  "gitbook": {
+    "properties": {
+      "force": {
+        "type": "boolean",
+        "required": false,
+        "title": "Force all generated tables to support datatables (if set to true, all HTML and markdown tables will become datatables)",
+        "value": false
+      },
+      "config-url": {
+        "type": "string",
+        "required": false,
+        "title": "URL of a valid json file containing datatables configurations"
+      },
+      "default-config": {
+        "type": "object",
+        "required": false,
+        "title": "Default datatables configuration to apply to all datatables"
+      }
+    }
+  },
   "scripts": {
+    "build": "npm run prepare && npm pack",
+    "prepare": "copyfiles -uEf ./node_modules/datatables.net*/js/*.min.js ./assets/js && copyfiles -uEf node_modules/jquery/dist/jquery.min.js ./assets/js && copyfiles -uEf node_modules/datatables.net*/css/*.min.css ./assets/css",
     "test": "nyc --reporter=lcov mocha --timeout 200000",
-    "coverage": "cat ./coverage/lcov.info | coveralls"
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "clean": "rm -rf ./assets/*/jquery* && rm -rf ./assets/*/*dataTables*"
   },
   "dependencies": {
     "cheerio": "*",
-    "datatables.net": "*"
+    "datatables.net": "*",
+    "datatables.net-colreorder-dt": "^1.5.6",
+    "datatables.net-datetime": "^1.1.2",
+    "datatables.net-dt": "*",
+    "datatables.net-fixedcolumns-dt": "^4.1.0",
+    "datatables.net-fixedheader-dt": "^3.2.4",
+    "datatables.net-responsive-dt": "^2.3.0",
+    "datatables.net-rowgroup-dt": "^1.2.0",
+    "datatables.net-searchbuilder-dt": "^1.3.4",
+    "datatables.net-searchpanes-dt": "^2.0.2",
+    "datatables.net-select-dt": "^1.4.0",
+    "yargs": "^17.5.1"
   },
   "devDependencies": {
     "coveralls": "^3.1.1",
     "honkit-tester": "^1.9.6",
     "mocha": "^9.2.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "copyfiles": "^2.4.1"
   },
   "mocha": {
     "recursive": true,
@@ -33,13 +68,7 @@
       "js"
     ]
   },
-  "gitbook": {
-    "properties": {
-      "force": {
-        "type": "boolean",
-        "required": false,
-        "title": "Force all generated tables to support datatables"
-      }
-    }
-  }
+  "files": [
+    "assets"
+  ]
 }

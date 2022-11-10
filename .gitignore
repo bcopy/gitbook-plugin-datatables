@@ -109,3 +109,4 @@ dist
 /build/
 /public/
 *.code-workspace
+*.tgz
